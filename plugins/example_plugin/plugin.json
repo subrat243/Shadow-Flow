@@ -1,0 +1,9 @@
+{
+    "name": "example_plugin",
+    "version": "1.0.0",
+    "author": "shadow-flow",
+    "description": "Example plugin demonstrating the plugin interface.",
+    "entry": "tool.py",
+    "class": "ExamplePlugin",
+    "phase": "recon"
+}

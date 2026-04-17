@@ -1,0 +1,17 @@
+# Shadow-Flow — Python Dependencies
+# Install with: pip install -r requirements.txt
+
+# ── Core ──────────────────────────────────────────────────
+pyyaml>=6.0           # Config file parsing
+requests>=2.31.0      # HTTP requests (subdomain enum, service detection)
+jinja2>=3.1.2         # HTML report templating
+urllib3>=2.0.0        # HTTP client (suppress SSL warnings)
+
+# ── DNS Enumeration ────────────────────────────────────────
+dnspython>=2.4.0      # DNS record queries and zone transfers
+
+# ── Metasploit Integration ─────────────────────────────────
+pymetasploit3>=1.0.3  # Metasploit RPC client
+
+# ── Optional / Dev ─────────────────────────────────────────
+colorama>=0.4.6       # Windows ANSI color support (optional)

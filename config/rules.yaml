@@ -1,0 +1,71 @@
+# ============================================================
+# Decision Engine Rules
+# Maps detected services/ports → recommended modules/tools
+# ============================================================
+
+# Target type detection rules
+target_type_rules:
+  web:
+    ports: [80, 443, 8080, 8443, 8000, 3000]
+    services: ["http", "https", "nginx", "apache", "iis"]
+  ssh:
+    ports: [22]
+    services: ["ssh", "openssh"]
+  ftp:
+    ports: [21]
+    services: ["ftp", "vsftpd", "proftpd"]
+  smb:
+    ports: [139, 445]
+    services: ["netbios", "smb", "microsoft-ds"]
+  rdp:
+    ports: [3389]
+    services: ["ms-wbt-server", "rdp"]
+  database:
+    ports: [3306, 5432, 1433, 27017, 6379]
+    services: ["mysql", "postgresql", "mssql", "mongodb", "redis"]
+
+# OS fingerprint rules
+os_rules:
+  linux:
+    keywords: ["linux", "ubuntu", "debian", "centos", "fedora", "kali"]
+  windows:
+    keywords: ["windows", "microsoft", "win32", "win64", "iis"]
+
+# Attack phase enablement based on target type
+phase_matrix:
+  web:
+    phases: ["recon", "scanning", "nikto", "exploitation", "reporting"]
+  ssh:
+    phases: ["recon", "scanning", "exploitation", "persistence", "reporting"]
+  smb:
+    phases: ["recon", "scanning", "exploitation", "persistence", "reporting"]
+  default:
+    phases: ["recon", "scanning", "exploitation", "reporting"]
+
+# Exploit recommendation rules (service → MSF module hints)
+exploit_rules:
+  - service: "ftp"
+    port: 21
+    cve_hints: ["CVE-2011-2523"]
+    msf_module: "exploit/unix/ftp/vsftpd_234_backdoor"
+    severity: "critical"
+  - service: "ssh"
+    port: 22
+    cve_hints: ["brute-force"]
+    msf_module: "auxiliary/scanner/ssh/ssh_login"
+    severity: "high"
+  - service: "http"
+    port: 80
+    cve_hints: ["generic-web"]
+    msf_module: "auxiliary/scanner/http/http_version"
+    severity: "medium"
+  - service: "smb"
+    port: 445
+    cve_hints: ["CVE-2017-0144"]
+    msf_module: "exploit/windows/smb/ms17_010_eternalblue"
+    severity: "critical"
+  - service: "mysql"
+    port: 3306
+    cve_hints: ["brute-force", "CVE-2012-2122"]
+    msf_module: "auxiliary/scanner/mysql/mysql_login"
+    severity: "high"
