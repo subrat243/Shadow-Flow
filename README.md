@@ -1,4 +1,5 @@
 # ⚡ Shadow-Flow
+> **An industry-grade, modular, and automated penetration testing framework designed for intelligent attack orchestration and professional reporting.**
 
 **Shadow-Flow** is an industry-grade, modular, and automated penetration testing framework built in Python. Designed for offensive security professionals and red team operators, it automates the full penetration testing lifecycle—from reconnaissance to reporting—using an intelligent, rule-based attack orchestration engine.
 
