@@ -47,10 +47,10 @@ chmod -R 777 "$ARTIFACTS_DIR"  # Ensure artifacts directory is writable
 echo "Installing Python requirements..."
 if command -v pip3 &> /dev/null; then
     # Use pip3 if available
-    sudo -u "$REAL_USER" pip3 install -r "$INSTALL_DIR/requirements.txt"
+    sudo -u "$REAL_USER" python3 -m pip install -r "$INSTALL_DIR/requirements.txt"
 elif command -v pip &> /dev/null; then
     # Fall back to pip if pip3 is not available
-    sudo -u "$REAL_USER" pip install -r "$INSTALL_DIR/requirements.txt"
+    sudo -u "$REAL_USER" python3 -m pip install -r "$INSTALL_DIR/requirements.txt"
 else
     echo "Error: pip is not installed. Please install pip first."
     exit 1

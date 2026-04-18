@@ -13,7 +13,8 @@ import threading
 import urllib.parse
 from datetime import datetime
 from bs4 import BeautifulSoup
-import matplotlib.pyplot as plt
+import urllib3
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 from jinja2 import Environment, FileSystemLoader
 from dotenv import load_dotenv
 from urllib.parse import urlparse
@@ -131,7 +132,7 @@ def information_gathering(target):
         
         # 2. HTTP Headers Analysis
         try:
-            headers = requests.head(target, allow_redirects=True).headers
+            headers = requests.head(target, allow_redirects=True, timeout=10, verify=False).headers
             interesting_headers = [
                 'Server', 'X-Powered-By', 'X-AspNet-Version', 'X-Runtime',
                 'X-Frame-Options', 'X-XSS-Protection', 'Content-Security-Policy',
@@ -147,7 +148,7 @@ def information_gathering(target):
         
         # 3. Technology Detection
         try:
-            response = requests.get(target)
+            response = requests.get(target, timeout=10, verify=False)
             soup = BeautifulSoup(response.text, 'html.parser')
             
             # Meta tags analysis
@@ -224,7 +225,7 @@ def information_gathering(target):
         for path in common_paths:
             try:
                 url = urljoin(target, path)
-                response = requests.head(url, allow_redirects=True)
+                response = requests.head(url, allow_redirects=True, timeout=5, verify=False)
                 if response.status_code in [200, 301, 302, 403]:
                     finding = f"{url} (Status: {response.status_code})"
                     findings["Discovered Paths"].append(finding)
@@ -351,7 +352,7 @@ def vuln_scan(target):
                     f"{target}/message?content={urllib.parse.quote(payload)}"
                 ]
                 for test_url in test_paths:
-                    response = requests.get(test_url)
+                    response = requests.get(test_url, timeout=5, verify=False)
                     if payload in response.text:
                         findings["XSS"] = True
                         print_section("XSS Test Results")
@@ -369,7 +370,7 @@ def vuln_scan(target):
 
         # CSRF Test
         try:
-            response = requests.get(target)
+            response = requests.get(target, timeout=10, verify=False)
             soup = BeautifulSoup(response.text, 'html.parser')
             csrf_tokens = soup.find_all(attrs={"name": [
                 "csrf", "csrf_token", "_token", "authenticity_token",
@@ -407,7 +408,7 @@ def vuln_scan(target):
                     f"{target}/load?template={urllib.parse.quote(payload)}"
                 ]
                 for test_url in test_paths:
-                    response = requests.get(test_url)
+                    response = requests.get(test_url, timeout=5, verify=False)
                     if any(indicator in response.text.lower() for indicator in [
                         "root:x:", "[extensions]", "[fonts]", "[mci extensions]"
                     ]):
@@ -480,7 +481,7 @@ def vuln_scan(target):
                     "password": payload
                 }
                 try:
-                    response = requests.post(f"{target}/login", data=data)
+                    response = requests.post(f"{target}/login", data=data, timeout=5, verify=False)
                     if any(indicator in response.text.lower() for indicator in [
                         "welcome", "dashboard", "profile", "admin", "logout",
                         "successfully", "authenticated"
@@ -792,12 +793,12 @@ def manual_test(target):
         session = requests.Session()
         try:
             # Test session fixation
-            initial_response = session.get(target)
+            initial_response = session.get(target, timeout=10, verify=False)
             initial_cookies = initial_response.cookies
             
             if initial_cookies:
                 # Try to use the same session ID after login
-                auth_response = session.post(urljoin(target, "/login"), json={"username": "test", "password": "test"})
+                auth_response = session.post(urljoin(target, "/login"), json={"username": "test", "password": "test"}, timeout=5, verify=False)
                 post_auth_cookies = auth_response.cookies
                 
                 if initial_cookies.get('session') == post_auth_cookies.get('session'):
