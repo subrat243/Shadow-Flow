@@ -1,419 +1,147 @@
-# Shadow-Flow
+# <p align="center"><img src="assets/logo.png" alt="Shadow-Flow Logo" width="250"></p>
+# <p align="center">Shadow-Flow</p>
 
-A comprehensive cybersecurity tool for automated security assessments and vulnerability scanning.
+<p align="center">
+  <img src="https://img.shields.io/github/license/subrat243/Shadow-Flow?style=for-the-badge&color=blue" alt="License">
+  <img src="https://img.shields.io/github/v/release/subrat243/Shadow-Flow?style=for-the-badge&color=green" alt="Version">
+  <img src="https://img.shields.io/github/issues/subrat243/Shadow-Flow?style=for-the-badge&color=orange" alt="Issues">
+  <img src="https://img.shields.io/github/stars/subrat243/Shadow-Flow?style=for-the-badge&color=yellow" alt="Stars">
+</p>
 
-## Features
+<p align="center">
+  <strong>Advanced Automated Penetration Testing & Vulnerability Research Toolkit</strong>
+</p>
+
+---
+
+## ⚡ Overview
+
+**Shadow-Flow** is a comprehensive, state-of-the-art cybersecurity suite designed for automated security assessments and deep-vulnerability research. From intelligent reconnaissance to advanced exploitation, Shadow-Flow streamlines the security testing workflow for professionals and researchers.
+
+> [!IMPORTANT]
+> This tool is designed for educational purposes and authorized security testing only. Always obtain proper permission before testing any system or network.
+
+---
+
+## 🚀 Key Features
 
 <details>
-<summary><h3>1. Information Gathering</h3></summary>
+<summary><b>🔍 1. Information Gathering</b></summary>
 
-<details>
-<summary><strong>DNS Enumeration</strong></summary>
-Discover subdomains, DNS records, and zone transfers
+*   **DNS Enumeration**: Subdomains, DNS records, and zone transfers.
+*   **Port Scanning**: Protocol-level service discovery.
+*   **Technology Detection**: Framework, CMS, and web-server fingerprinting.
+*   **Directory Enumeration**: Intelligent discovery of hidden paths and sensitive files.
+*   **SSL/TLS Analysis**: Configuration and certificate validation.
+*   **Metadata Extraction**: Deep file analysis for sensitive data leaks.
 </details>
 
 <details>
-<summary><strong>Port Scanning</strong></summary>
-Identify open ports and running services
+<summary><b>🛡️ 2. Vulnerability Scanning</b></summary>
+
+*   **SQL Injection**: Union-based, Error-based, Time-based, and Boolean testing.
+*   **XSS**: Reflected, Stored, DOM-based, and Template injection checks.
+*   **Security Misconfigurations**: Default credentials, exposed `.env`, and insecure headers.
+*   **Modern Vuls**: SSRF, XXE, and Template Injection detection.
 </details>
 
 <details>
-<summary><strong>Technology Detection</strong></summary>
-Fingerprint web servers, frameworks, and CMS
+<summary><b>💥 3. Exploitation & Post-Exploitation</b></summary>
+
+*   **Automated Exploits**: SQLi data extraction, XSS cookie theft, and command execution.
+*   **File Inclusion**: LFI/RFI and PHP wrapper exploitation.
+*   **Persistence**: Backdoor placement and credential harvesting logic.
+*   **Privilege Escalation**: Kernel exploit detection and misconfiguration checks.
 </details>
 
 <details>
-<summary><strong>Directory Enumeration</strong></summary>
-Discover hidden directories and files
+<summary><b>📊 4. Reporting</b></summary>
+
+*   **Professional HTML Reports**: Interactive, executive-style findings.
+*   **JSON Data Export**: Integration-ready formats for dev teams.
+*   **Historical Tracking**: Track scan progress and resolution over time.
 </details>
 
-<details>
-<summary><strong>SSL/TLS Analysis</strong></summary>
-Check certificate validity and security configurations
-</details>
+---
 
-<details>
-<summary><strong>WHOIS Information</strong></summary>
-Gather domain registration and ownership details
-</details>
+## 🛠️ Installation
 
-<details>
-<summary><strong>Email Harvesting</strong></summary>
-Find email addresses associated with the domain
-</details>
+### Quick Start (System-wide)
 
-<details>
-<summary><strong>Metadata Extraction</strong></summary>
-Analyse documents and images for metadata
-</details>
-
-</details>
-
-<details>
-<summary><h3>2. Vulnerability Scanning</h3></summary>
-
-<details>
-<summary><strong>SQL Injection</strong></summary>
-Detect various SQL injection vulnerabilities
-<ul>
-<li>Advanced Union-based SQL Injection</li>
-<li>Error-based injection</li>
-<li>Time-based blind injection</li>
-<li>Boolean-based blind injection</li>
-</ul>
-</details>
-
-<details>
-<summary><strong>Cross-Site Scripting (XSS)</strong></summary>
-<ul>
-<li>Reflected XSS</li>
-<li>Stored XSS</li>
-<li>DOM-based XSS</li>
-<li>Template injection</li>
-</ul>
-</details>
-
-<details>
-<summary><strong>Security Misconfigurations</strong></summary>
-<ul>
-<li>Default credentials</li>
-<li>Exposed sensitive files</li>
-<li>Insecure HTTP headers</li>
-<li>Debug modes enabled</li>
-</ul>
-</details>
-
-<details>
-<summary><strong>Known CVE Detection</strong></summary>
-Check for known vulnerabilities in detected software versions
-</details>
-
-</details>
-
-<details>
-<summary><h3>3. Manual Testing</h3></summary>
-
-<details>
-<summary><strong>Directory Traversal</strong></summary>
-Test for path traversal vulnerabilities
-</details>
-
-<details>
-<summary><strong>File Upload Testing</strong></summary>
-Check for unsafe file upload handling
-<ul>
-<li>Extension validation bypass</li>
-<li>Content-type validation</li>
-<li>File execution tests</li>
-</ul>
-</details>
-
-<details>
-<summary><strong>Access Control</strong></summary>
-Test authorisation mechanisms
-<ul>
-<li>Horizontal privilege escalation</li>
-<li>Vertical privilege escalation</li>
-<li>IDOR vulnerabilities</li>
-</ul>
-</details>
-
-<details>
-<summary><strong>Input Validation</strong></summary>
-Test form fields and parameters
-<ul>
-<li>Command injection</li>
-<li>XML injection</li>
-<li>Template injection</li>
-<li>NoSQL injection</li>
-</ul>
-</details>
-
-</details>
-
-<details>
-<summary><h3>4. Exploitation</h3></summary>
-
-<details>
-<summary><strong>Advanced SQL Injection</strong></summary>
-<ul>
-<li>Database enumeration</li>
-<li>Data extraction</li>
-<li>Command execution</li>
-</ul>
-</details>
-
-<details>
-<summary><strong>XSS Exploitation</strong></summary>
-<ul>
-<li>Cookie stealing</li>
-<li>Keylogging</li>
-<li>Phishing payloads</li>
-</ul>
-</details>
-
-<details>
-<summary><strong>File Inclusion</strong></summary>
-<ul>
-<li>Local File Inclusion (LFI)</li>
-<li>Remote File Inclusion (RFI)</li>
-<li>PHP wrapper exploitation</li>
-</ul>
-</details>
-
-<details>
-<summary><strong>Command Injection</strong></summary>
-<ul>
-<li>OS command execution</li>
-<li>Reverse shell establishment</li>
-<li>File system access</li>
-</ul>
-</details>
-
-<details>
-<summary><strong>Authentication Bypass</strong></summary>
-<ul>
-<li>SQL injection bypass</li>
-<li>Logic flaws exploitation</li>
-<li>Session manipulation</li>
-</ul>
-</details>
-
-</details>
-
-<details>
-<summary><h3>5. Post-Exploitation</h3></summary>
-
-<details>
-<summary><strong>Privilege Escalation</strong></summary>
-<ul>
-<li>Kernel exploits</li>
-<li>Misconfigured permissions</li>
-<li>Vulnerable services</li>
-</ul>
-</details>
-
-<details>
-<summary><strong>Network Enumeration</strong></summary>
-<ul>
-<li>Internal network scanning</li>
-<li>Service discovery</li>
-<li>Asset identification</li>
-</ul>
-</details>
-
-<details>
-<summary><strong>Data Exfiltration</strong></summary>
-<ul>
-<li>Database dumping</li>
-<li>File system access</li>
-<li>Configuration retrieval</li>
-</ul>
-</details>
-
-<details>
-<summary><strong>Persistence</strong></summary>
-<ul>
-<li>Backdoor placement</li>
-<li>Credential harvesting</li>
-<li>System monitoring</li>
-</ul>
-</details>
-
-</details>
-
-<details>
-<summary><h3>6. Reporting</h3></summary>
-
-<details>
-<summary><strong>Comprehensive HTML Reports</strong></summary>
-<ul>
-<li>Executive summary</li>
-<li>Technical details</li>
-<li>Proof of concept</li>
-<li>Remediation steps</li>
-<li>Risk ratings</li>
-</ul>
-</details>
-
-<details>
-<summary><strong>JSON Export</strong></summary>
-<ul>
-<li>Machine-readable format</li>
-<li>Integration-ready data</li>
-<li>Detailed scan results</li>
-</ul>
-</details>
-
-<details>
-<summary><strong>Database Storage</strong></summary>
-<ul>
-<li>Historical scan data</li>
-<li>Vulnerability tracking</li>
-<li>Progress monitoring</li>
-</ul>
-</details>
-
-<details>
-<summary><strong>Custom Templates</strong></summary>
-<ul>
-<li>Customisable report formats</li>
-<li>Brand-specific styling</li>
-<li>Multiple export options</li>
-</ul>
-</details>
-
-</details>
-
-> **Note**: This tool is designed for educational purposes and authorised security testing only. Always obtain proper permission before testing any system or network.
-
-## Project Structure
-
-```
-Shadow-Flow/
-├── src/
-│   ├── models/         # Database models
-│   ├── utils/          # Utility functions
-│   └── templates/      # HTML report templates
-├── artifacts/
-│   ├── logs/           # Log files
-│   ├── db/             # Database files
-│   └── reports/        # Generated reports
-├── requirements.txt    # Python dependencies
-└── README.md           # Project documentation
-```
-
-## Installation
-
-### Method 1: System-wide Installation (Recommended)
-
-1. Clone the repository:
 ```bash
+# Clone the repository
 git clone https://github.com/subrat243/Shadow-Flow.git
 cd Shadow-Flow
-```
 
-2. Install required packages:
-```bash
+# Install dependencies
 pip install -r requirements.txt
-```
 
-3. Install the tool system-wide:
-```bash
+# Install globally
 sudo chmod +x install.sh
 sudo ./install.sh
 ```
 
-This will install the `pentest` command to your system, making it available globally.
+---
 
-### Method 2: Local Installation
+## 💻 Usage
 
-1. Clone the repository:
+Shadow-Flow can be used via the **Interactive Shell** or **Command Line Interface**.
+
+### Interactive Mode
 ```bash
-git clone https://github.com/subrat243/Shadow-Flow.git
-cd Shadow-Flow
+pentest
 ```
 
-2. Install required packages:
+### CLI Mode
 ```bash
-pip install -r requirements.txt
-```
-
-## Usage
-
-### Command Line Interface
-
-You can use the tool in two ways:
-
-1. If installed system-wide, use the `pentest` command:
-```bash
-# Run vulnerability scan
+# Full vulnerability scan
 pentest -t https://example.com -m scan
 
-# Run information gathering with verbose output
+# Silent information gathering
 pentest -t 192.168.1.1 -m info -v
 
 # List demo targets
 pentest -d
 ```
 
-2. If installed locally, run the Python script directly:
-```bash
-python src/main.py -t https://example.com -m scan
-```
+### Options:
+| Flag | Description |
+| --- | --- |
+| `-t, --target` | Target URL or IP address |
+| `-m, --mode` | Mode: `info`, `scan`, `manual`, `exploit`, `post`, `report` |
+| `-v, --verbose` | Enable verbose debugging output |
+| `-d, --demo` | List available safe demo targets |
 
-Available options:
-- `-t, --target`: Specify target URL or IP address
-- `-m, --mode`: Choose operation mode:
-  - `info`: Information Gathering
-  - `scan`: Vulnerability Scan
-  - `manual`: Manual Testing
-  - `exploit`: Exploitation
-  - `post`: Post-Exploitation
-  - `report`: Generate Report
-  - `clear`: Clear Database
-- `-d, --demo`: List available demo targets
-- `-v, --verbose`: Enable verbose output
+---
 
-### Interactive Mode
+## 🛡️ Security Notice
 
-To start the interactive menu:
-```bash
-# If installed system-wide:
-pentest
+> [!CAUTION]
+> **Your Identity Matters**: This tool makes direct HTTP requests. To stay anonymous and secure:
+> *   Use a **VPN** or **Proxy**.
+> *   Route traffic through **Tor**.
+> *   Use a dedicated testing environment.
 
-# If installed locally:
-python src/main.py
-```
+---
 
-## Demo Targets
+## 🤝 Contributing
 
-For safe testing, use these approved demo targets:
-- http://demo.testfire.net
-- https://public-firing-range.appspot.com
-- https://juice-shop.herokuapp.com
+Contributions are what make the open-source community an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-## Security Considerations
-
-- Rate limiting implemented
-- Safe demo mode with pre-approved targets
-- Input validation
-- Secure database handling
-- Comprehensive logging
-- Authorisation required for non-demo targets
-
-## Security Notice
-
-⚠️ **Important**: This tool makes direct HTTP requests to target websites. Your IP address and request details will be visible to the target servers. For anonymity and security:
-
-- Use a VPN service
-- Use a proxy server
-- Use the Tor network
-- Use a dedicated testing environment
-
-Never use this tool without proper authorisation and appropriate security measures in place.
-
-## Dependencies
-
-- Python 3.11+
-- SQLAlchemy for database management
-- Requests for HTTP operations
-- BeautifulSoup4 for HTML parsing
-- Jinja2 for report generation
-- python-dotenv for environment variables
-
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## License
+---
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+## 📜 License
 
-## Disclaimer
+Distributed under the **MIT License**. See `LICENSE` for more information.
 
-This tool is for educational purposes only. Always obtain proper authorisation before testing any target systems.
+---
+
+<p align="center">
+  Built with ❤️ by <a href="https://github.com/subrat243">subrat243</a>
+</p>
