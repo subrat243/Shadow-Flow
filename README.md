@@ -1,4 +1,3 @@
-# <p align="center"><img src="assets/logo.png" alt="Shadow-Flow Logo" width="250"></p>
 # <p align="center">Shadow-Flow</p>
 
 <p align="center">

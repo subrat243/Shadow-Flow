@@ -37,6 +37,7 @@ htmlcov/
 *.cover
 
 # ── Generated output — DO NOT commit reports ─────────────
+artifacts/
 reports/
 logs/
 *.pcap
