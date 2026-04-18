@@ -56,7 +56,7 @@ Analyse documents and images for metadata
 <summary><strong>SQL Injection</strong></summary>
 Detect various SQL injection vulnerabilities
 <ul>
-<li>Union-based injection</li>
+<li>Advanced Union-based SQL Injection</li>
 <li>Error-based injection</li>
 <li>Time-based blind injection</li>
 <li>Boolean-based blind injection</li>
