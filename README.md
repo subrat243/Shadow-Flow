@@ -1,144 +1,419 @@
-# ⚡ Shadow-Flow
-> **An industry-grade, modular, and automated penetration testing framework designed for intelligent attack orchestration and professional reporting.**
+# Shadow-Flow
 
-**Shadow-Flow** is an industry-grade, modular, and automated penetration testing framework built in Python. Designed for offensive security professionals and red team operators, it automates the full penetration testing lifecycle—from reconnaissance to reporting—using an intelligent, rule-based attack orchestration engine.
+A comprehensive cybersecurity tool for automated security assessments and vulnerability scanning.
 
----
+## Features
 
-## 🎯 Objective
+<details>
+<summary><h3>1. Information Gathering</h3></summary>
 
-Shadow-Flow aims to bridge the gap between fragmented security tools and a unified attack workflow. It chains industry-standard tools like Nmap, Metasploit, Nikto, and Bettercap into a coordinated, multi-stage pipeline, making complex engagements more efficient and reproducible.
+<details>
+<summary><strong>DNS Enumeration</strong></summary>
+Discover subdomains, DNS records, and zone transfers
+</details>
 
----
+<details>
+<summary><strong>Port Scanning</strong></summary>
+Identify open ports and running services
+</details>
 
-## 🚀 Key Features
+<details>
+<summary><strong>Technology Detection</strong></summary>
+Fingerprint web servers, frameworks, and CMS
+</details>
 
-- **Intelligent Attack Orchestration**: A rule-based decision engine that dynamically builds attack paths based on detected services, OS versions, and vulnerabilities.
-- **Modular Plugin Architecture**: Easily extend the toolkit by adding new modules or third-party tool wrappers.
-- **Full Lifecycle Automation**:
-  - **Reconnaissance**: Nmap, DNS enumeration, and subdomain discovery.
-  - **Scanning**: Deep NSE script analysis and web vulnerability scanning (Nikto).
-  - **Exploitation**: Seamless integration with Metasploit via RPC for automated exploit delivery.
-  - **Persistence & Monitoring**: Simulated persistence mechanisms and network traffic capture (tcpdump).
-- **Professional Reporting**: Generates both machine-readable JSON and beautiful, executive-ready HTML reports with remediation advice.
-- **Interactive REPL**: A Metasploit-style console (`cli/console.py`) for a premium user experience.
+<details>
+<summary><strong>Directory Enumeration</strong></summary>
+Discover hidden directories and files
+</details>
 
----
+<details>
+<summary><strong>SSL/TLS Analysis</strong></summary>
+Check certificate validity and security configurations
+</details>
 
-## 🛠️ Tech Stack
+<details>
+<summary><strong>WHOIS Information</strong></summary>
+Gather domain registration and ownership details
+</details>
 
-- **Language**: Python 3.x
-- **Core Libraries**: `subprocess`, `argparse`, `json`, `requests`, `jinja2`, `pyyaml`, `dnspython`
-- **Integrations**: Nmap, Metasploit (msfrpcd), Nikto, tcpdump, Bettercap
-- **Design Patterns**: Factory, Strategy, Plugin, Template Method
+<details>
+<summary><strong>Email Harvesting</strong></summary>
+Find email addresses associated with the domain
+</details>
 
----
+<details>
+<summary><strong>Metadata Extraction</strong></summary>
+Analyse documents and images for metadata
+</details>
 
-## 📂 Project Structure
+</details>
 
-```text
+<details>
+<summary><h3>2. Vulnerability Scanning</h3></summary>
+
+<details>
+<summary><strong>SQL Injection</strong></summary>
+Detect various SQL injection vulnerabilities
+<ul>
+<li>Union-based injection</li>
+<li>Error-based injection</li>
+<li>Time-based blind injection</li>
+<li>Boolean-based blind injection</li>
+</ul>
+</details>
+
+<details>
+<summary><strong>Cross-Site Scripting (XSS)</strong></summary>
+<ul>
+<li>Reflected XSS</li>
+<li>Stored XSS</li>
+<li>DOM-based XSS</li>
+<li>Template injection</li>
+</ul>
+</details>
+
+<details>
+<summary><strong>Security Misconfigurations</strong></summary>
+<ul>
+<li>Default credentials</li>
+<li>Exposed sensitive files</li>
+<li>Insecure HTTP headers</li>
+<li>Debug modes enabled</li>
+</ul>
+</details>
+
+<details>
+<summary><strong>Known CVE Detection</strong></summary>
+Check for known vulnerabilities in detected software versions
+</details>
+
+</details>
+
+<details>
+<summary><h3>3. Manual Testing</h3></summary>
+
+<details>
+<summary><strong>Directory Traversal</strong></summary>
+Test for path traversal vulnerabilities
+</details>
+
+<details>
+<summary><strong>File Upload Testing</strong></summary>
+Check for unsafe file upload handling
+<ul>
+<li>Extension validation bypass</li>
+<li>Content-type validation</li>
+<li>File execution tests</li>
+</ul>
+</details>
+
+<details>
+<summary><strong>Access Control</strong></summary>
+Test authorisation mechanisms
+<ul>
+<li>Horizontal privilege escalation</li>
+<li>Vertical privilege escalation</li>
+<li>IDOR vulnerabilities</li>
+</ul>
+</details>
+
+<details>
+<summary><strong>Input Validation</strong></summary>
+Test form fields and parameters
+<ul>
+<li>Command injection</li>
+<li>XML injection</li>
+<li>Template injection</li>
+<li>NoSQL injection</li>
+</ul>
+</details>
+
+</details>
+
+<details>
+<summary><h3>4. Exploitation</h3></summary>
+
+<details>
+<summary><strong>Advanced SQL Injection</strong></summary>
+<ul>
+<li>Database enumeration</li>
+<li>Data extraction</li>
+<li>Command execution</li>
+</ul>
+</details>
+
+<details>
+<summary><strong>XSS Exploitation</strong></summary>
+<ul>
+<li>Cookie stealing</li>
+<li>Keylogging</li>
+<li>Phishing payloads</li>
+</ul>
+</details>
+
+<details>
+<summary><strong>File Inclusion</strong></summary>
+<ul>
+<li>Local File Inclusion (LFI)</li>
+<li>Remote File Inclusion (RFI)</li>
+<li>PHP wrapper exploitation</li>
+</ul>
+</details>
+
+<details>
+<summary><strong>Command Injection</strong></summary>
+<ul>
+<li>OS command execution</li>
+<li>Reverse shell establishment</li>
+<li>File system access</li>
+</ul>
+</details>
+
+<details>
+<summary><strong>Authentication Bypass</strong></summary>
+<ul>
+<li>SQL injection bypass</li>
+<li>Logic flaws exploitation</li>
+<li>Session manipulation</li>
+</ul>
+</details>
+
+</details>
+
+<details>
+<summary><h3>5. Post-Exploitation</h3></summary>
+
+<details>
+<summary><strong>Privilege Escalation</strong></summary>
+<ul>
+<li>Kernel exploits</li>
+<li>Misconfigured permissions</li>
+<li>Vulnerable services</li>
+</ul>
+</details>
+
+<details>
+<summary><strong>Network Enumeration</strong></summary>
+<ul>
+<li>Internal network scanning</li>
+<li>Service discovery</li>
+<li>Asset identification</li>
+</ul>
+</details>
+
+<details>
+<summary><strong>Data Exfiltration</strong></summary>
+<ul>
+<li>Database dumping</li>
+<li>File system access</li>
+<li>Configuration retrieval</li>
+</ul>
+</details>
+
+<details>
+<summary><strong>Persistence</strong></summary>
+<ul>
+<li>Backdoor placement</li>
+<li>Credential harvesting</li>
+<li>System monitoring</li>
+</ul>
+</details>
+
+</details>
+
+<details>
+<summary><h3>6. Reporting</h3></summary>
+
+<details>
+<summary><strong>Comprehensive HTML Reports</strong></summary>
+<ul>
+<li>Executive summary</li>
+<li>Technical details</li>
+<li>Proof of concept</li>
+<li>Remediation steps</li>
+<li>Risk ratings</li>
+</ul>
+</details>
+
+<details>
+<summary><strong>JSON Export</strong></summary>
+<ul>
+<li>Machine-readable format</li>
+<li>Integration-ready data</li>
+<li>Detailed scan results</li>
+</ul>
+</details>
+
+<details>
+<summary><strong>Database Storage</strong></summary>
+<ul>
+<li>Historical scan data</li>
+<li>Vulnerability tracking</li>
+<li>Progress monitoring</li>
+</ul>
+</details>
+
+<details>
+<summary><strong>Custom Templates</strong></summary>
+<ul>
+<li>Customisable report formats</li>
+<li>Brand-specific styling</li>
+<li>Multiple export options</li>
+</ul>
+</details>
+
+</details>
+
+> **Note**: This tool is designed for educational purposes and authorised security testing only. Always obtain proper permission before testing any system or network.
+
+## Project Structure
+
+```
 Shadow-Flow/
-├── main.py                  # Primary entry point (CLI + REPL)
-├── core/                    # Framework logic (Orchestrator, Decision Engine)
-├── modules/                 # Attack modules (Recon, Scanning, Exploitation, etc.)
-├── plugins/                 # Extensible plugin system
-├── reporting/               # JSON & HTML report generation
-├── config/                  # YAML configurations and rules
-├── cli/                     # Interactive console interface
-└── tests/                   # Unit and integration tests
+├── src/
+│   ├── models/         # Database models
+│   ├── utils/          # Utility functions
+│   └── templates/      # HTML report templates
+├── artifacts/
+│   ├── logs/           # Log files
+│   ├── db/             # Database files
+│   └── reports/        # Generated reports
+├── requirements.txt    # Python dependencies
+└── README.md           # Project documentation
 ```
 
----
+## Installation
 
-## 🏁 Getting Started
+### Method 1: System-wide Installation (Recommended)
 
-### 1. Prerequisites
-Ensure you have the following tools installed:
-- Nmap
-- Metasploit Framework
-- Nikto
-- Python 3.8+
-
-### 2. Installation
+1. Clone the repository:
 ```bash
 git clone https://github.com/subrat243/Shadow-Flow.git
 cd Shadow-Flow
+```
+
+2. Install required packages:
+```bash
 pip install -r requirements.txt
 ```
 
-### 3. Usage
-
-Shadow-Flow supports two primary modes: a Metasploit-style **Interactive REPL** and a **Non-Interactive CLI** for automation.
-
-#### **A. Interactive Console (Recommended)**
-Perfect for manual testing and granular control.
+3. Install the tool system-wide:
 ```bash
-python main.py
-```
-**Common Console Commands:**
-```text
-shadow-flow > set target 192.168.1.100    # Set session target
-shadow-flow > show modules                 # View all attack modules
-shadow-flow > set module exploitation      # Toggle a specific module
-shadow-flow > run                          # Execute full intelligent attack chain
-shadow-flow > run recon                    # Run ONLY the reconnaissance phase
-shadow-flow > show config                  # View current engine settings
-shadow-flow > clear                        # Clear the terminal
+sudo chmod +x install.sh
+sudo ./install.sh
 ```
 
-#### **B. CLI Mode (Automation & CI/CD)**
-Ideal for scheduled scans or integration into larger pipelines.
+This will install the `pentest` command to your system, making it available globally.
 
-**1. Full Automated Scan:**
+### Method 2: Local Installation
+
+1. Clone the repository:
 ```bash
-python main.py --target scanme.nmap.org
+git clone https://github.com/subrat243/Shadow-Flow.git
+cd Shadow-Flow
 ```
 
-**2. Specific Modules Only:**
+2. Install required packages:
 ```bash
-python main.py --target 10.0.0.5 --modules recon,scanning
+pip install -r requirements.txt
 ```
 
-**3. Custom Configuration & Rules:**
+## Usage
+
+### Command Line Interface
+
+You can use the tool in two ways:
+
+1. If installed system-wide, use the `pentest` command:
 ```bash
-python main.py --target 10.0.0.5 --config my_custom_config.yaml --rules custom_rules.yaml
+# Run vulnerability scan
+pentest -t https://example.com -m scan
+
+# Run information gathering with verbose output
+pentest -t 192.168.1.1 -m info -v
+
+# List demo targets
+pentest -d
 ```
 
-**4. Stealth / Speed (Disable heavy reports):**
+2. If installed locally, run the Python script directly:
 ```bash
-python main.py --target 10.0.2.15 --no-html --no-json
+python src/main.py -t https://example.com -m scan
 ```
 
-**5. Debug Mode (Full Verbosity):**
+Available options:
+- `-t, --target`: Specify target URL or IP address
+- `-m, --mode`: Choose operation mode:
+  - `info`: Information Gathering
+  - `scan`: Vulnerability Scan
+  - `manual`: Manual Testing
+  - `exploit`: Exploitation
+  - `post`: Post-Exploitation
+  - `report`: Generate Report
+  - `clear`: Clear Database
+- `-d, --demo`: List available demo targets
+- `-v, --verbose`: Enable verbose output
+
+### Interactive Mode
+
+To start the interactive menu:
 ```bash
-python main.py --target 10.0.2.15 --verbose
+# If installed system-wide:
+pentest
+
+# If installed locally:
+python src/main.py
 ```
 
----
+## Demo Targets
 
-## 🛠️ Plugin Development
+For safe testing, use these approved demo targets:
+- http://demo.testfire.net
+- https://public-firing-range.appspot.com
+- https://juice-shop.herokuapp.com
 
-Shadow-Flow is designed to be extensible. You can add your own tools by dropping them into the `plugins/` directory.
+## Security Considerations
 
-1.  **Create a Directory**: `plugins/my_scanner/`
-2.  **Add Manifest**: Create `plugin.json` with your tool's metadata (Name, Class, Phase).
-3.  **Implement Logic**: Create `tool.py` inheriting from `BaseModule`.
-4.  **Auto-Load**: Shadow-Flow will automatically detect and load your plugin on next launch.
+- Rate limiting implemented
+- Safe demo mode with pre-approved targets
+- Input validation
+- Secure database handling
+- Comprehensive logging
+- Authorisation required for non-demo targets
 
-Refer to `plugins/example_plugin/` for a boilerplate implementation.
+## Security Notice
 
----
+⚠️ **Important**: This tool makes direct HTTP requests to target websites. Your IP address and request details will be visible to the target servers. For anonymity and security:
 
-## ⚠️ Ethical Hacking Disclaimer
+- Use a VPN service
+- Use a proxy server
+- Use the Tor network
+- Use a dedicated testing environment
 
-This toolkit is for **authorized penetration testing and educational purposes only**. Using this tool against targets without prior written consent is illegal and unethical. The developers assume no liability for misuse. Always follow the [Computer Fraud and Abuse Act (CFAA)](https://en.wikipedia.org/wiki/Computer_Fraud_and_abuse_act) and equivalent local laws.
+Never use this tool without proper authorisation and appropriate security measures in place.
 
----
+## Dependencies
 
-## 📄 License
+- Python 3.11+
+- SQLAlchemy for database management
+- Requests for HTTP operations
+- BeautifulSoup4 for HTML parsing
+- Jinja2 for report generation
+- python-dotenv for environment variables
 
-Distributed under the MIT License. See `LICENSE` for more information.
+## Contributing
 
----
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-**Developed with ❤️ by Subrat**
+## License
+
+This project is licensed under the GNU V.3.0 License - see the [LICENSE](LICENSE) file for details.
+
+## Disclaimer
+
+This tool is for educational purposes only. Always obtain proper authorisation before testing any target systems.
