@@ -98,7 +98,7 @@ def information_gathering(target):
     validate_input(target)
     print_section("Starting Information Gathering")
     print(f"Target: {target}")
-    logging.info("[INFO] Starting Information Gathering...")
+    logging.info("[INFO] Initializing Information Gathering phase...")
     
     findings = {
         "Basic Information": [],
