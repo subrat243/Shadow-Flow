@@ -6,6 +6,9 @@ import os
 ARTIFACTS_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), 'artifacts')
 DB_PATH = os.path.join(ARTIFACTS_DIR, 'db', 'results.db')
 
+# Ensure database directory exists
+os.makedirs(os.path.join(ARTIFACTS_DIR, 'db'), exist_ok=True)
+
 # Create database engine
 engine = create_engine(f'sqlite:///{DB_PATH}', connect_args={'check_same_thread': False})
 session_factory = sessionmaker(bind=engine)

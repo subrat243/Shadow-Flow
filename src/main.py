@@ -22,6 +22,18 @@ from urllib.parse import urljoin
 import time
 import argparse
 import sys
+# Project structure and initialization
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+ARTIFACTS_DIR = os.path.join(PROJECT_ROOT, 'artifacts')
+LOGS_DIR = os.path.join(ARTIFACTS_DIR, 'logs')
+DB_DIR = os.path.join(ARTIFACTS_DIR, 'db')
+REPORTS_DIR = os.path.join(ARTIFACTS_DIR, 'reports')
+TEMPLATES_DIR = os.path.join(PROJECT_ROOT, 'src', 'templates')
+PAYLOADS_DIR = os.path.join(PROJECT_ROOT, 'src', 'payloads')
+
+# Create necessary directories before importing models
+for directory in [ARTIFACTS_DIR, LOGS_DIR, DB_DIR, REPORTS_DIR]:
+    os.makedirs(directory, exist_ok=True)
 
 # Import models
 from models import (
@@ -44,18 +56,6 @@ from utils import (
     DEMO_TARGETS
 )
 
-# Project structure
-PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-ARTIFACTS_DIR = os.path.join(PROJECT_ROOT, 'artifacts')
-LOGS_DIR = os.path.join(ARTIFACTS_DIR, 'logs')
-DB_DIR = os.path.join(ARTIFACTS_DIR, 'db')
-REPORTS_DIR = os.path.join(ARTIFACTS_DIR, 'reports')
-TEMPLATES_DIR = os.path.join(PROJECT_ROOT, 'src', 'templates')
-PAYLOADS_DIR = os.path.join(PROJECT_ROOT, 'src', 'payloads')
-
-# Create necessary directories
-for directory in [ARTIFACTS_DIR, LOGS_DIR, DB_DIR, REPORTS_DIR]:
-    os.makedirs(directory, exist_ok=True)
 
 # Configure logging
 logging.basicConfig(
